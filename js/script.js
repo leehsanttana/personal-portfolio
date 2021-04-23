@@ -45,54 +45,8 @@ function changeColor(){
 
 window.addEventListener('scroll', changeColor);
 
-menuTab[0].classList.add('active');
-contentTab[0].classList.add('active');
-function activeTab(i) {
-
-    menuTab.forEach((item) => {
-        item.classList.remove('active');
-    })
-
-    contentTab.forEach((item) => {
-        item.classList.remove('active');
-    })
-
-
-    menuTab[i].classList.add('active');
-    contentTab[i].classList.add('active');
-}
-
-menuTab.forEach((item, i) => {
-    item.addEventListener('click', () => {
-        activeTab(i);
-    });
-})
-
-experienceMenuTab[1].classList.add('active');
-experienceContentTab[1].classList.add('active');
-function activeExperienceTab(i) {
-
-    experienceMenuTab.forEach((item) => {
-        item.classList.remove('active');
-    })
-
-    experienceContentTab.forEach((item) => {
-        item.classList.remove('active');
-    })
-
-
-    experienceMenuTab[i].classList.add('active');
-    experienceContentTab[i].classList.add('active');
-}
-
-experienceMenuTab.forEach((item, i) => {
-    item.addEventListener('click', () => {
-        activeExperienceTab(i);
-    });
-})
-
 function scrollInternalLink() {
-    const links = document.querySelectorAll('.navbar a[href^="#"]');
+    const links = document.querySelectorAll('a[href^="#"]');
   
     function getScrollTopByHref(element) {
       const id = element.getAttribute('href');
@@ -110,6 +64,8 @@ function scrollInternalLink() {
       event.preventDefault();
       const to = getScrollTopByHref(event.currentTarget) - 60;
       scrollToPosition(to);
+      navbar.classList.remove('active-menu');
+      btnMenu.classList.remove('active-btn');
     }
   
     links.forEach((links, i) => {
@@ -119,72 +75,131 @@ function scrollInternalLink() {
   
   scrollInternalLink();
 
-  function scrollEffect() {
+function activeEffectScroll() {
+    function scrollEffect() {
     
-    const topScroll = document.querySelectorAll('[data-effect="top"]');
-    const subTopScroll = document.querySelectorAll('[data-effect="sub-top"]');
-    const leftScroll = document.querySelectorAll('[data-effect="left"]');
-    const bottomScroll = document.querySelectorAll('[data-effect="bottom"]');
-
-    if(topScroll.length){
-        function animaScroll() {
-            topScroll.forEach((section) => {
-                const sectionTop = section.getBoundingClientRect().top -500;
-                if(sectionTop < 0){
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
+        const topScroll = document.querySelectorAll('[data-effect="top"]');
+        const subTopScroll = document.querySelectorAll('[data-effect="sub-top"]');
+        const leftScroll = document.querySelectorAll('[data-effect="left"]');
+        const bottomScroll = document.querySelectorAll('[data-effect="bottom"]');
+    
+        if(topScroll.length){
+            function animaScroll() {
+                topScroll.forEach((section) => {
+                    const sectionTop = section.getBoundingClientRect().top -500;
+                    if(sectionTop < 0){
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            }
+    
+            animaScroll();
         }
-
-        animaScroll();
-    }
-
-    if(subTopScroll.length){
-        function animaScroll() {
-            subTopScroll.forEach((section) => {
-                const sectionTop = section.getBoundingClientRect().top -700;
-                if(sectionTop < 0){
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
+    
+        if(subTopScroll.length){
+            function animaScroll() {
+                subTopScroll.forEach((section) => {
+                    const sectionTop = section.getBoundingClientRect().top -700;
+                    if(sectionTop < 0){
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            }
+    
+            animaScroll();
         }
-
-        animaScroll();
-    }
-
-    if(leftScroll.length){
-        function animaScroll() {
-            leftScroll.forEach((section) => {
-                const sectionTop = section.getBoundingClientRect().top -600;
-                if(sectionTop < 0){
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
+    
+        if(leftScroll.length){
+            function animaScroll() {
+                leftScroll.forEach((section) => {
+                    const sectionTop = section.getBoundingClientRect().top -600;
+                    if(sectionTop < 0){
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            }
+    
+            animaScroll();
         }
-
-        animaScroll();
-    }
-
-    if(bottomScroll.length){
-        function animaScroll() {
-            bottomScroll.forEach((section) => {
-                const sectionTop = section.getBoundingClientRect().top -600;
-                if(sectionTop < 0){
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
+    
+        if(bottomScroll.length){
+            function animaScroll() {
+                bottomScroll.forEach((section) => {
+                    const sectionTop = section.getBoundingClientRect().top -600;
+                    if(sectionTop < 0){
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            }
+    
+            animaScroll();
         }
-
-        animaScroll();
     }
+    
+    window.addEventListener('scroll', scrollEffect);
 }
 
-window.addEventListener('scroll', scrollEffect);
+activeEffectScroll();
+
+function experienceTabs(){
+    experienceMenuTab[1].classList.add('active');
+    experienceContentTab[1].classList.add('active');
+    function activeExperienceTab(i) {
+
+        experienceMenuTab.forEach((item) => {
+            item.classList.remove('active');
+        })
+
+        experienceContentTab.forEach((item) => {
+            item.classList.remove('active');
+        })
+
+
+        experienceMenuTab[i].classList.add('active');
+        experienceContentTab[i].classList.add('active');
+    }
+
+    experienceMenuTab.forEach((item, i) => {
+        item.addEventListener('click', () => {
+            activeExperienceTab(i);
+        });
+    })
+}
+
+experienceTabs();
+
+function projectTabs() {
+    menuTab[0].classList.add('active');
+    contentTab[0].classList.add('active');
+    function activeTab(i) {
+
+        menuTab.forEach((item) => {
+            item.classList.remove('active');
+        })
+
+        contentTab.forEach((item) => {
+            item.classList.remove('active');
+        })
+
+
+        menuTab[i].classList.add('active');
+        contentTab[i].classList.add('active');
+    }
+
+    menuTab.forEach((item, i) => {
+        item.addEventListener('click', () => {
+            activeTab(i);
+        });
+    })
+}
+
+projectTabs();
+
