@@ -90,6 +90,11 @@ p{
     letter-spacing: 0.055rem;
 }
 
+img{
+    width: 100%;
+    height: auto;
+}
+
 .change-bg{
     background: var(--dark-purple);
     box-shadow: 0 8px 4px rgba(46, 46, 46, 0.095);
@@ -743,7 +748,7 @@ p{
     }
 
     .header{
-        padding: 2rem;
+        padding: 1.5rem 1.2rem;
     }
 
     .btn-menu{
@@ -811,7 +816,7 @@ p{
 
     .navbar{
         position: absolute;
-        top: 100px;
+        top: 80px;
         left: -100%;
         width: 100%;
         transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -828,11 +833,11 @@ p{
 
     .navbar ul li{
         text-align: left;
-        padding: 1rem 2rem;
+        padding: 1rem 1.2rem;
     }
 
     .main-section{
-        padding: 150px 2rem 0;
+        padding: 150px 1.2rem 0;
         height: auto;
         display: grid;
         grid-template-columns: 1fr;
@@ -852,6 +857,15 @@ p{
     .main-section .doc{
         display: none;
     }
+
+    .social-links{
+        top: 50%;
+    }
+    
+    .social-links.active{
+        display: block;
+        animation: fadeInTop 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    }
     
     .social-links{
         padding: 1rem 1rem 0;
@@ -864,7 +878,7 @@ p{
     .about-section{
         grid-template-columns: 1fr;
         justify-content: center;
-        padding: 60px 2rem;
+        padding: 60px 1.2rem;
         gap: 60px;
         background: var(--dark-purple);
     }
@@ -881,18 +895,18 @@ p{
     }
 
     .services-section{
-        padding: 60px 2rem;
+        padding: 60px 1.2rem;
     }
 
     .grid-services{
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: 1fr;
         row-gap: 30px;
         justify-content: start;
     }
     
     .project-section{
-        padding: 60px 2rem;
+        padding: 60px 1.2rem;
     }
 
     .tab-menu{
@@ -916,17 +930,22 @@ p{
     .tab-menu li::after {
         display: none;
     }
-    
+
     .tab-content .content-group{
         margin-top: 60px;
         grid-template-columns: 1fr;
         gap: 30px;
-        justify-content: space-between;
+        justify-content: start;
         display: none;
     }
 
+    .content-group div{
+        width: 100%;
+        height: 400px;
+    }
+
     .experience-section{
-        padding: 60px 2rem;
+        padding: 60px 1.2rem;
     }
     
     .time-line-content{
@@ -961,7 +980,7 @@ p{
     }
     
     .time-line-content section{
-        width: 400px;
+        width: 100%;
         height: 250px;
         background-color: var(--white);
         position: relative;
@@ -977,8 +996,8 @@ p{
         display: block;
         grid-row: 2;
         background: var(--pink);
-        width: 400px;
-        height: 250px;
+        width: 100%;
+        height: auto;
         top: 0;
         left: 0;
         animation: fadeInTop .8s cubic-bezier(0.165, 0.84, 0.44, 2) forwards;
@@ -986,18 +1005,12 @@ p{
 
     .time-line-content section::after{
         border: 4px solid var(--pink);
-        top: 15px;
-        left: 15px;
+        top: 0;
+        left: 0;
     }
     
     .time-line-content section.active::after{
-        border: 6px solid transparent;
-        box-shadow: none;
-    }
-    
-    .time-line-content section.active::after{
-        border: 6px solid transparent;
-        box-shadow: none;
+        display: none;
     }
     
     .time-line-content section:last-child{
@@ -1005,7 +1018,7 @@ p{
     }
     
     .contact-section{
-        padding: 60px 2rem;
+        padding: 60px 1.2rem;
         background: var(--dark-purple);
         text-align: center;
     }
@@ -1039,5 +1052,24 @@ p{
     
     .contact-section .email{
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width:375px) {
+
+    h1{
+        font-size: 2.5rem;
+    }
+
+    h2{
+        font-size: 1.4rem;
+    }
+
+    .contact-section h4::after{
+        margin-left: 37.5%;
+    }
+
+    .contact-section .email{
+        font-size: 1rem;
     }
 }
