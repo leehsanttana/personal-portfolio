@@ -384,15 +384,7 @@ img {
 
 .content-group a {
   display: block;
-  height: 305px;
-  position: relative;
-  transition: 0.5s ease;
-}
-
-.content-group:nth-child(3) a,
-.content-group:nth-child(4) a {
-  display: block;
-  height: 450px;
+  height: auto;
   position: relative;
   transition: 0.5s ease;
 }
@@ -948,9 +940,8 @@ img {
     display: none;
   }
 
-  .content-group div {
-    width: 100%;
-    height: 400px;
+  .content-group a::before {
+    opacity: 0.4;
   }
 
   .experience-section {
