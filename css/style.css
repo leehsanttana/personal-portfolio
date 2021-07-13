@@ -308,7 +308,7 @@ img {
 
 .grid-services {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 30px;
   justify-content: space-between;
 }
